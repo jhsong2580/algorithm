@@ -4,47 +4,42 @@ public class algo_1 {
 
     private static final char MIN_NUMBER = (char) '0';
     private static final char MAX_NUMBER = (char) '9';
+    private static final char BASE_NUMBER = (char) '0';
 
     public int myAtoi(String s) {
-        StringBuilder stringBuilder = new StringBuilder();
-        String source = s.trim(); //빈칸제거
+        String source = s.trim();
         int index = 0;
-        char isPositive = '+';
+        double result = 0;
         if (source.equals("") || source.equals("+") || source.equals("-")) {
             return 0;
         }
-        if (sourceIsPlus(source.charAt(index)) || sourceIsMinus(source.charAt(index))) {
-            isPositive = source.charAt(index);
-            index += 1;
-        }
 
-        if (sourceIsNonDigit(source.charAt(index))) {
-            return 0;
+        if (sourceIsPlus(source.charAt(index)) || sourceIsMinus(source.charAt(index))) {
+            index += 1;
         }
 
         for (int i = index; i < source.length(); i++) {
             char c = source.charAt(i);
-            if (c <= (char) '9' && c >= (char) '0') {
-                stringBuilder.append(c);
+            if (c <= MAX_NUMBER && c >= MIN_NUMBER) {
+                result = result * 10 + c - BASE_NUMBER;
                 continue;
             }
             break;
         }
-        if (stringBuilder.length() == 0) {
-            return 0;
-        }
-        stringBuilder.insert(0, isPositive);
-        String result = stringBuilder.toString();
 
-        try {
-            return Integer.parseInt(result);
-        } catch (NumberFormatException e) {
-            if (result.charAt(0) == '-') {
-                return Integer.MIN_VALUE;
-            }
+        if (source.charAt(0) == '-') {
+            result = result * -1;
+        }
+
+        if (result > Integer.MAX_VALUE) {
             return Integer.MAX_VALUE;
         }
+        if (result < Integer.MIN_VALUE) {
+            return Integer.MIN_VALUE;
+        }
+        return (int) result;
     }
+
 
     private boolean sourceIsPlus(char source) {
         return source == '+';
@@ -52,9 +47,5 @@ public class algo_1 {
 
     private boolean sourceIsMinus(char source) {
         return source == '-';
-    }
-
-    private boolean sourceIsNonDigit(char source) {
-        return source > MAX_NUMBER && source < MIN_NUMBER;
     }
 }
