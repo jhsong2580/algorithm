@@ -2,13 +2,14 @@ package algorithm.algorithm;
 
 
 import algorithm.algorithm.algo_20220731_1.algo_1;
+import algorithm.algorithm.algo_20220731_2.Solution;
 
 public class AlgorithmApplication {
 
 	public static void main(String[] args) {
 
-		algo_1 algo_1 = new algo_1();
-		int i = algo_1.myAtoi("words and 987");
+		Solution solution = new Solution();
+		int i = solution.totalNQueens(5);
 		System.out.println(i);
 
 	}
