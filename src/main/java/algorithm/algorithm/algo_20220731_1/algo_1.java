@@ -1,4 +1,4 @@
-package algorithm.algorithm.algo_20220731;
+package algorithm.algorithm.algo_20220731_1;
 
 public class algo_1 {
 

@@ -1,7 +1,7 @@
 package algorithm.algorithm;
 
 
-import algorithm.algorithm.algo_20220731.algo_1;
+import algorithm.algorithm.algo_20220731_1.algo_1;
 
 public class AlgorithmApplication {
 
