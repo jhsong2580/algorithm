@@ -20,9 +20,6 @@ public class Solution {
         if (matchCount == board.length * board.length) {
             return true;
         }
-        if (x == board.length) {
-            return false;
-        }
         if (board[x][y] != '.') {
             return dfs(board, next_x, next_y, matchCount + 1);
         }
