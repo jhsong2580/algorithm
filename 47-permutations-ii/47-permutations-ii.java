@@ -4,26 +4,27 @@ class Solution {
             .toArray();
         List<List<Integer>> result = new LinkedList<>();
         int[] check = new int[nums.length];
-        dfs(new LinkedList<>(), 0, nums, result, check);
+        dfs(new LinkedList<>(),  nums, result);
 
         return result;
     }
 
-    private void dfs(LinkedList<Integer> curNumbers, int layer, int[] nums,
-        List<List<Integer>> result, int[] check) {
-        if (layer == nums.length) {
+    private void dfs(LinkedList<Integer> curNumbers,  int[] nums,
+        List<List<Integer>> result) {
+        if (curNumbers.size() == nums.length) {
             result.add(copyList(curNumbers));
             return;
         }
         int beforeNumber = -11;
         for (int i = 0; i < nums.length; i++) {
-            if(check[i] == 0 && beforeNumber != nums[i]){
+            if(nums[i] != -11 && beforeNumber != nums[i]){
                 beforeNumber = nums[i];
                 curNumbers.add(nums[i]);
-                check[i] = 1;
+                int temp = nums[i];
+                nums[i] = -11;
 
-                dfs(curNumbers, layer + 1, nums, result, check);
-                check[i] = 0;
+                dfs(curNumbers,  nums, result);
+                nums[i] = temp;
                 curNumbers.removeLast();
             }
         }
