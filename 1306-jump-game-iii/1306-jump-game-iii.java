@@ -37,6 +37,7 @@ class Solution {
         if (dfs(index - arr[index], target, check, arr)) {
             return true;
         }
+        check[index] = 0;
         return false;
 
     }
