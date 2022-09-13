@@ -1,4 +1,4 @@
-package algorithm.algorithm.algo_20220912_4;
+package algorithm.algorithm.algo_20220912_3.algo_20220912_4;
 
 //플로이드워셜
 public class Solution_FWAlg {
