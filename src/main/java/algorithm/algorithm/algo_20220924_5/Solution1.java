@@ -32,7 +32,6 @@ public class Solution1 {
             } else if (flag.equals("MERGE")) {
                 merge(board, groupInfo, commandInfo);
             } else if (flag.equals("UNMERGE")) {
-                unmerge(board, groupInfo, commandInfo);
             } else if (flag.equals("PRINT")) {
                 String value = board[Integer.parseInt(commandInfo[1]) - 1][
                     Integer.parseInt(commandInfo[2]) - 1];
